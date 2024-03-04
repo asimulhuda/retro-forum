@@ -17,10 +17,11 @@ const displayPosts = (singlePosts) => {
   discussPosts.textContent = "";
 
   singlePosts.forEach((singlePost) => {
-    loadingSpinner.style.display = "none";
-    const postCard = document.createElement("div");
-    postCard.classList = `flex lg:p-10 p-6 bg-[#F3F3F5] cursor-pointer rounded-3xl border-[#797DFC] hover:bg-[#797DFC1A] hover:border-[1px]`;
-    postCard.innerHTML = `
+    setTimeout(() => {
+      loadingSpinner.style.display = "none";
+      const postCard = document.createElement("div");
+      postCard.classList = `flex lg:p-10 p-6 bg-[#F3F3F5] cursor-pointer rounded-3xl border-[#797DFC] hover:bg-[#797DFC1A] hover:border-[1px]`;
+      postCard.innerHTML = `
             
                 <div class="pr-6 relative">
                     <div
@@ -63,12 +64,13 @@ const displayPosts = (singlePosts) => {
                             </div>
                         </div>
                         <button onclick="markRead('${singlePost.title}', ${
-      singlePost.view_count
-    })" class="p-2 rounded-full hover:bg-black"><img src="images/email-box.png" alt="" /></button>
+        singlePost.view_count
+      })" class="p-2 rounded-full hover:bg-black"><img src="images/email-box.png" alt="" /></button>
                     </div>
                 </div>
         `;
-    discussPosts.appendChild(postCard);
+      discussPosts.appendChild(postCard);
+    }, 2000);
   });
 };
 
