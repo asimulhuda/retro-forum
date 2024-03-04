@@ -1,6 +1,7 @@
 const discussPosts = document.getElementById("discuss-posts");
 const markedSection = document.getElementById("marked-section");
 const loadingSpinner = document.getElementById("loading-spinner");
+const readCount = document.getElementById("read-count");
 
 const showDiscussPosts = async (postCategory) => {
   loadingSpinner.style.display = "block";
@@ -63,6 +64,8 @@ const displayPosts = (singlePosts) => {
   });
 };
 
+let readCountDefault = 0;
+
 const markRead = (markedTitle, markedView) => {
   const markedCard = document.createElement("div");
   markedCard.classList = `flex justify-between bg-white rounded-3xl p-6`;
@@ -76,6 +79,9 @@ const markRead = (markedTitle, markedView) => {
                  </div>
     `;
   markedSection.appendChild(markedCard);
+
+  readCountDefault += 1;
+  readCount.innerText = readCountDefault;
 };
 
 const handelSearch = () => {
