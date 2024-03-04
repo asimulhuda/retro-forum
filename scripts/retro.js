@@ -24,9 +24,13 @@ const displayPosts = (singlePosts) => {
             
                 <div class="pr-6 relative">
                     <div
-                    class="absolute w-4 h-4 bg-[#10B981] rounded-full right-5 -top-1"
+                    class="absolute w-4 h-4 ${
+                      singlePost.isActive ? "bg-green-500" : "bg-red-500"
+                    } rounded-full right-5 -top-1"
                     ></div>
-                    <img class="rounded-2xl w-[72px]" src="${singlePost.image}" alt="" />
+                    <img class="rounded-2xl w-[72px]" src="${
+                      singlePost.image
+                    }" alt="" />
                 </div>
                 <div class="space-y-3">
                     <div class="flex gap-5 text[#12132DCC] font-inter text-sm font-medium">
@@ -53,10 +57,14 @@ const displayPosts = (singlePosts) => {
                             </div>
                             <div>
                                 <img src="images/message.png" alt="" />
-                                <p><span>${singlePost.posted_time}</span> min</p>
+                                <p><span>${
+                                  singlePost.posted_time
+                                }</span> min</p>
                             </div>
                         </div>
-                        <button onclick="markRead('${singlePost.title}', ${singlePost.view_count})" class="p-2 rounded-full hover:bg-black"><img src="images/email-box.png" alt="" /></button>
+                        <button onclick="markRead('${singlePost.title}', ${
+      singlePost.view_count
+    })" class="p-2 rounded-full hover:bg-black"><img src="images/email-box.png" alt="" /></button>
                     </div>
                 </div>
         `;
